@@ -1,9 +1,10 @@
 // To check whether a text (t) has a particular string(s) and if yes then how many times?
 // The size of the ouput vector gives the number of times it has got repeated
+#include<bits/stdc++.h>
+using namespace std;
 vector<int> rabin_karp(string const &s, string const &t)
 {
-    const int p = 31; // Incase the string and text only have lower charcters...If also upper characters, then use: 53 or something. 
-    //Choose the closest prime to the number of possibilities for each charcater
+    const int p = 31;
     const int m = 1e9 + 9;
     int S = s.size(), T = t.size();
     vector<long long> p_pow(max(S, T));
