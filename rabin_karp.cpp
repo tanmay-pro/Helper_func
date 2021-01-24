@@ -40,6 +40,5 @@ vector<int> rabin_karp(string const &s, string const &t)
             occurences.push_back(i);
         }
     }
-
     return occurences;
 }
