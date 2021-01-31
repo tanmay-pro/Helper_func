@@ -43,3 +43,14 @@ vector<int> rabin_karp(string const &s, string const &t)
 
     return occurences;
 }
+int main()
+{
+    string s = "abc";
+    string t = "abcabcabcdea";
+    vector<int> ans = rabin_karp(s, t);
+    for(int i = 0; i< ans.size(); i++)
+    {
+        printf("%d ", ans[i]);
+    }
+    return 0;
+}

@@ -1,13 +1,41 @@
 // To Find all prime numbers between 1 and n
 
-int n;
-vector<bool> is_prime(n + 1, true);
-is_prime[0] = is_prime[1] = false;
-for (int i = 2; i * i <= n; i++)
+vl sieve(ll n)
 {
-    if (is_prime[i])
+    int is_composite[n + 5] = {0};
+    is_composite[0] = is_composite[1] = 1;
+
+    for (int i = 2; i * i <= n; i++)
+        if (!is_composite[i])
+            for (int j = i * i; j <= n; j += i)
+                is_composite[j] = 1;
+
+    vl primes;
+    for (int i = 0; i <= n; i++)
+        if (!is_composite[i])
+            primes.push_back(i);
+    return primes;
+}
+
+// To find the number of divisors of a number
+
+ll num[n + 1];
+for (int i = 1; i <= n; i++)
+{
+    for (int j = i; j <= n; j += i)
     {
-        for (int j = i * i; j <= n; j += i)
-            is_prime[j] = false;
+        num[j]++;
+    }
+}
+
+// To find the sum of all divisors of a number
+
+ll sum[n + 1];
+
+for (int i = 1; i <= n; i++)
+{
+    for (int j = i; j <= n; j += i)
+    {
+        sum[j] += i;
     }
 }
