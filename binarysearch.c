@@ -1,4 +1,4 @@
-int binarySearch(int arr[], int l, int r, int x)
+ll binarySearch(vl &arr, ll l, ll r, ll x)
 {
     while (l <= r)
     {
@@ -16,5 +16,5 @@ int binarySearch(int arr[], int l, int r, int x)
             r = m - 1;
         }
     }
-    return 0; // return o or return false if element not found
+    return 0;
 }
