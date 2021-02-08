@@ -33,7 +33,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        solution();
+        
     }
     return 0;
 }
