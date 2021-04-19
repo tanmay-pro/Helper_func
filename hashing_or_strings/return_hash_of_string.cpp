@@ -16,7 +16,7 @@ In such a case it is best to calculate two hashes for the same string with m = 1
 corresponds to approx 1e18 
 */
 
-ll get_hash(string &s)
+ll get_hash(string s)
 {
     int p = 31; // Take 53 if both uppercase and lowercase letters
     int m = 1e9 + 9;

@@ -23,16 +23,26 @@ typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 typedef map<int, int> mii;
 typedef map<ll, ll> mll;
+int m = 1e9 + 7;
+int p = 31;
 
-int MOD = 1e9 + 7;
-
-int main()
+void bfs(vvl &adj, int num_of_nodes, int source_vertex)
 {
-    amazing;
-    ll t = 1;
-    cin >> t;
-    while (t--)
+    queue<int> q;
+    vector<bool> visited;
+    q.push(source_vertex);
+    visited[source_vertex] = true;
+    while (!q.empty())
     {
+        int v = q.front();
+        q.pop();
+        for (int i = 0; i < adj[v].size(); i++)
+        {
+            if (visited[adj[v][i]] == false)
+            {
+                q.push(adj[v][i]);
+                visited[adj[v][i]] = true;
+            }
+        }
     }
-    return 0;
 }

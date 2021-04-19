@@ -26,13 +26,14 @@ typedef map<ll, ll> mll;
 int m = 1e9 + 7;
 int p = 31;
 
-int main()
+vector<bool> visited(num_of_vertices);
+
+void dfs(vvl &adj, int v)
 {
-    amazing;
-    ll t = 1;
-    cin >> t;
-    while (t--)
+    visited[v] = true;
+    for (int i = 0; i < adj[v].size(); i++)
     {
+        if (!visited[adj[v][i]])
+            dfs(adj[v][i]);
     }
-    return 0;
 }

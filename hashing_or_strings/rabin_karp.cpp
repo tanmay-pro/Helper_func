@@ -1,5 +1,5 @@
 /*
-6. String hashing is used to find the ocurrences of a string in a text. {Rabin-karp function}
+1. String hashing is used to find the ocurrences of a string in a text. {Rabin-karp function}
 */
 
 vl rabin_karp(string &s, string &t)

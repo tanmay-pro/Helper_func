@@ -26,13 +26,30 @@ typedef map<ll, ll> mll;
 int m = 1e9 + 7;
 int p = 31;
 
-int main()
+// 1. It only works for directed acyclic graphs.
+
+
+vector<int> ans(num_of_vertices);
+
+vector<bool> visited(num_of_vertices, false);
+
+void dfs(vvl &adj, int v)
 {
-    amazing;
-    ll t = 1;
-    cin >> t;
-    while (t--)
+    visited[v] = true;
+    for (int i = 0; i < adj[v].size(); i++)
     {
+        if (!visited[adj[v][i]])
+            dfs(adj[v][i]);
     }
-    return 0;
+    ans.push_back(v);
+}
+
+void topological_sort()
+{
+    for (int i = 0; i < n; ++i)
+    {
+        if (!visited[i])
+            dfs(i);
+    }
+    reverse(ans.begin(), ans.end());
 }

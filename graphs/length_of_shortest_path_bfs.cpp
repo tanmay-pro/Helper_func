@@ -26,13 +26,25 @@ typedef map<ll, ll> mll;
 int m = 1e9 + 7;
 int p = 31;
 
-int main()
-{
-    amazing;
-    ll t = 1;
-    cin >> t;
-    while (t--)
+bfs_length_of_shortest_path(vvl &adj, int num_of_nodes, int source_vertex)
+{   
+    queue<int> q;
+    vector<bool> visited;
+    vi distance(num_of_nodes, 0);
+    q.push(source_vertex);
+    visited[source_vertex] = true;
+    while (!q.empty())
     {
+        int v = q.front();
+        q.pop();
+        for (int i = 0; i < adj[v].size(); i++)
+        {
+            if (visited[adj[v][i]] == false)
+            {
+                q.push(adj[v][i]);
+                visited[adj[v][i]] = true;
+                distance[adj[v][i]] = distance[v] + 1;
+            }
+        }
     }
-    return 0;
 }

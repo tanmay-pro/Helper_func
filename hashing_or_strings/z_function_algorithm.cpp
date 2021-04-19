@@ -3,7 +3,7 @@
 matches with the prefix.
 
 2. Algorithm: 
-
+*/
 vector<int> z_function(string s) 
 {
     int n = (int) s.length();
@@ -20,8 +20,9 @@ vector<int> z_function(string s)
     }
     return z;   // returns a vector
 }
-
+/*
 3. Explanantion:
 
 [l, r] are the indices of the rightmost string match. The index r can be seen as the boundary to 
 which our string has been scanned by the algorithm.
+*/
