@@ -1,5 +1,18 @@
-#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <stdbool.h>
+#include <string.h>
+
+#define ll long long
+#define PI 3.14159265
+#define br printf("\n")
+#define fo(i, n) for (int i = 0; i < n; i++)
+#define Fo(i, k, n) for (int i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
+#define file_read                     \
+    freopen("input.txt", "r", stdin); \
+    freopen("output.txt", "w", stdout);
+int m = 1e9 + 7;
 
 typedef long long elementtype;
 typedef struct node node;
@@ -22,6 +35,18 @@ bool empty(ptrnode p);                       // Return whether the Queue is empt
 int size(ptrnode p);                         // Return The size of Queue
 elementtype front(ptrnode p);                // Return the first element of the queue
 elementtype back(ptrnode p);                 // Return the last element of the queue
+
+ElementType minimum_c(ElementType *a, ElementType *b)
+{
+    if (*b > *a)
+    {
+        return *a;
+    }
+    else
+    {
+        return *b;
+    }
+}
 
 elementtype back(ptrnode p)
 {
@@ -130,9 +155,34 @@ void eject(ptrnode p)
     }
 }
 
+void bfs(ll n, ll matrix[][n], bool visited[], ll mindis[], ll source_vertex)
+{
+    fo(i, n)
+    {
+        mindis[i] = 0;
+    }
+    ptrnode q;
+    push_front(q, source_vertex);
+    visited[source_vertex] = true;
+    while (!empty(q))
+    {
+        ll v = back(q);
+        eject(q);
+        fo(i, n)
+        {
+            if (matrix[v][i] > 0 && !visited[i])
+            {
+                push_front(q, i);
+                visited[i] = true;
+                mindis[i] = mindis[v] + matrix[v][i];
+            }
+        }
+    }
+}
+
 int main()
 {
-    ptrnode p;
-    p = createnode(0); // Header noder
+    ll t = 1;
+    scanf("%lld", &t);
     return 0;
 }
