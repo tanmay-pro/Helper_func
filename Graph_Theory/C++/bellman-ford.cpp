@@ -26,14 +26,20 @@ typedef map<ll, ll> mll;
 int m = 1e9 + 7;
 int p = 31;
 
-vector<bool> visited(num_of_vertices);
-
-void dfs(vvl &adj, int v)
+struct edge
 {
-    visited[v] = true;
-    for (int i = 0; i < adj[v].size(); i++)
-    {
-        if (!visited[adj[v][i]])
-            dfs(adj[v][i]);
-    }
+    int a, b, cost;
+};
+
+int n, m, v;
+vector<edge> e;
+const int INF = 1e9 + 7;
+void solve()
+{
+    vector<int> d(n, INF);
+    d[v] = 0;
+    for (int i = 0; i < n - 1; ++i)
+        for (int j = 0; j < m; ++j)
+            if (d[e[j].a] < INF)
+                d[e[j].b] = min(d[e[j].b], d[e[j].a] + e[j].cost);
 }
